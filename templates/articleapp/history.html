@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %} History - {% endblock title %}
+
+{% block content %}
+<div id="content" class="p-4 p-md-5 pt-5">
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Oder's Code</th>
+            <th scope="col">Initial</th>
+            <th scope="col">Final</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">CDC-11276</th>
+            <td>JEFF-M65-S</td>
+            <td>JEY-G65-S</td>
+            <td style="color: darkgreen;">Done</td>
+          </tr>
+          <tr>
+            <th scope="row">CDC 10105</th>
+            <td>JEFF-M65-S</td>
+            <td>JEY-G65-S</td>
+            <td>Product's already in order</td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+{% endblock content %}
