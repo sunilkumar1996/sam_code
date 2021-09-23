@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render, HttpResponse
 from django.views.generic import View
-from .hit_crm_link import Scraper
+# from .hit_crm_link import Scraper
 # Create your views here.
 from selenium import webdriver
 # from selenium.webdriver.chrome.options import  Options
@@ -34,7 +34,7 @@ def home(request):
                 print(product1,product2)
                 option = Options()
                 option.headless = True
-                driver = webdriver.Chrome(ChromeDriverManager().install())
+                driver = webdriver.Chrome(ChromeDriverManager().install(), options=option)
                 class Scraper:
                         def Hit_link(self):
                                 driver.get('https://masada.lundimatin.biz/profil_collab/#documents_cmde_cli_recherche.php')
