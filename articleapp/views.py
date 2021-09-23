@@ -34,7 +34,7 @@ def home(request):
                 print(product1,product2)
                 option = Options()
                 option.headless = True
-                driver = webdriver.Chrome(ChromeDriverManager().install(),options=option)
+                driver = webdriver.Chrome(ChromeDriverManager().install())
                 class Scraper:
                         def Hit_link(self):
                                 driver.get('https://masada.lundimatin.biz/profil_collab/#documents_cmde_cli_recherche.php')
