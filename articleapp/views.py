@@ -47,8 +47,8 @@ def home(request):
                 op.add_argument("--headless")
                 op.add_argument("--no-sandbox")
                 op.add_argument("--disable-dev-sh-usage")
-                driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=op)
-                # driver = webdriver.Chrome(ChromeDriverManager().install(), options=option)
+                # driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=op)
+                driver = webdriver.Chrome(options=op)
                 class Scraper:
                         def Hit_link(self):
                                 driver.get('https://masada.lundimatin.biz/profil_collab/#documents_cmde_cli_recherche.php')
