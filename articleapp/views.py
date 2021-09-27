@@ -24,7 +24,7 @@ from .replacement import Check_prduct_in_order
 from selenium.webdriver.common.action_chains import ActionChains
 
 def home(request):
-        path_driver = '/home/sunil/workspace/sanjeevupwork/sam_code/sam_code/chromedriver'
+        # path_driver = '/home/sunil/workspace/sanjeevupwork/sam_code/sam_code/chromedriver'
         if request.method=="GET":
                 # print(request)
                 return render(request, "articleapp/home.html")
@@ -33,10 +33,13 @@ def home(request):
                 product2=request.POST.get('Product2')
 
                 print(product1,product2)
-                option = Options()
-                option.headless = True
+                op = webdriver.ChromeOptions()
+                op.binary_location = os.environ.get('GOOGLE_CHROME_BIN')
+                op.add_argument("--headless")
+                op.add_argument("--no-sandbox")
+                op.add_argument("--disable-dev-sh-usage")
+                driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=op)
                 # driver = webdriver.Chrome(ChromeDriverManager().install(), options=option)
-                driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=option)
                 class Scraper:
                         def Hit_link(self):
                                 driver.get('https://masada.lundimatin.biz/profil_collab/#documents_cmde_cli_recherche.php')
