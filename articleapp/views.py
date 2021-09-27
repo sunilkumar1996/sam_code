@@ -34,7 +34,16 @@ def home(request):
 
                 print(product1,product2)
                 op = webdriver.ChromeOptions()
-                op.binary_location = os.environ.get('GOOGLE_CHROME_BIN')
+                # op.binary_location = os.environ.get('GOOGLE_CHROME_BIN')
+                op = Options()
+                # options.add_argument('--no-sandbox')
+                # options.add_argument('--disable-extensions')
+                # options.add_argument('--headless')
+                # options.add_argument('--disable-gpu')
+                # options.binary_location = "/usr/bin/google-chrome"
+                # path_url = "/usr/bin/chromedriver"
+                # driver = webdriver.Chrome(executable_path=path_url, options=options)
+                op.binary_location = "/usr/bin/google-chrome"
                 op.add_argument("--headless")
                 op.add_argument("--no-sandbox")
                 op.add_argument("--disable-dev-sh-usage")
