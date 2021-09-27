@@ -1,3 +1,4 @@
+import os
 from django.shortcuts import redirect, render, HttpResponse
 from django.views.generic import View
 # from .hit_crm_link import Scraper
@@ -9,7 +10,6 @@ from selenium.webdriver.chrome.options import Options
 from random import seed
 from random import random
 from time import sleep, time
-from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.common.by import By
@@ -24,8 +24,9 @@ from .replacement import Check_prduct_in_order
 from selenium.webdriver.common.action_chains import ActionChains
 
 def home(request):
+        path_driver = '/home/sunil/workspace/sanjeevupwork/sam_code/sam_code/chromedriver'
         if request.method=="GET":
-                print(request)
+                # print(request)
                 return render(request, "articleapp/home.html")
         else:
                 product1=request.POST.get('Product1')
@@ -34,7 +35,8 @@ def home(request):
                 print(product1,product2)
                 option = Options()
                 option.headless = True
-                driver = webdriver.Chrome(ChromeDriverManager().install(), options=option)
+                # driver = webdriver.Chrome(ChromeDriverManager().install(), options=option)
+                driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=option)
                 class Scraper:
                         def Hit_link(self):
                                 driver.get('https://masada.lundimatin.biz/profil_collab/#documents_cmde_cli_recherche.php')
